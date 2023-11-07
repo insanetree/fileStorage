@@ -72,7 +72,7 @@ def get(manager, basePath, fileID, savePath, pool, semaphore, fileRegistryDictio
         return
     with fileRegistryMutex:
         if fileID not in fileRegistryDictionary.keys() or fileRegistryDictionary[fileID][1] != "ready":
-            print("File with provided fileID does not exist or is not redy")
+            print("File with provided fileID does not exist or is not ready")
             return
         fileName = fileRegistryDictionary[fileID][0]
         fileRegistryDictionary[fileID][1] = "get"
@@ -127,7 +127,7 @@ def delete(files, basePath, pool, semaphore, fileRegistryDictionary, fileRegistr
     for fileID in files:
         with fileRegistryMutex:
             if fileID not in fileRegistryDictionary.keys() or fileRegistryDictionary[fileID][1] != "ready":
-                print("File with provided fileID ({}) does not exist or is not redy".format(fileID))
+                print("File with provided fileID ({}) does not exist or is not ready".format(fileID))
                 continue
             fileRegistryDictionary[fileID][1] = "delete"
             with chunkRegistryMutex:
