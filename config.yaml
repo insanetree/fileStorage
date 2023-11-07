@@ -1,0 +1,4 @@
+savePath: "fileBase"
+IOProcessNum: 16
+maxMem: 16000
+chunkSize: 1000
